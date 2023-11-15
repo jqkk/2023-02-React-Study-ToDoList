@@ -1,22 +1,27 @@
-<div align="middle" style="margin-bottom: 60px">
-  <img src="https://todomvc.com/site-assets/logo-icon.png" width="200">
-</div>
+# React + TypeScript + Vite
 
-## 프로젝트 주제
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-- 투두리스트
+Currently, two official plugins are available:
 
-## 개요
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- 리액트를 이용하여 투두리스트 서비스을 만듭니다.
+## Expanding the ESLint configuration
 
-## 프로젝트 진행 방식
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- 해당 레포지토리를 자신의 레포지토리로 fork 받은 후, 구현을 진행합니다.
-- 기술 스택은 자유롭게 선정하여 진행합니다.
-- 매주 정기 회의(토요일 밤 10시) 전까지 구현 결과물을 해당 레포지토리의 자신의 이름으로 된 브랜치로 Pull Request를 날리도록 합니다.
-  - ex) jqkk/2023-01-React-Study-Form의 main 브랜치에서 Google-Developer-Student-Clubs-TUK /2023-01-React-Study-Form의 jqkk 브랜치로 Pull Request를 날립니다.
+- Configure the top-level `parserOptions` property like this:
 
-## 참고 링크
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
+```
 
-- https://todomvc.com/
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
