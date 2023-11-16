@@ -1,5 +1,3 @@
-function App() {
+export const App = () => {
   return <div>GDSC TUK</div>;
-}
-
-export default App;
+};
