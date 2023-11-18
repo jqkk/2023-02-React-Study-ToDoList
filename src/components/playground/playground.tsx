@@ -11,10 +11,10 @@ export const Playground = () => {
       <Box position="absolute" top="0" right="0">
         <Card />
       </Box>
-      <Box position="absolute" bottom="0" left="0">
+      <Box position="absolute" bottom="0" right="0">
         <Card />
       </Box>
-      <Box position="absolute" bottom="0" right="0">
+      <Box position="absolute" bottom="0" left="0">
         <Card />
       </Box>
       <Box
