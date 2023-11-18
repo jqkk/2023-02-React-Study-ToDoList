@@ -59,41 +59,40 @@ export const Playground = () => {
   );
 };
 
-const Result = React.memo(
-  ({
-    color,
-    onButtonClick,
-  }: {
-    color?: ColorType;
-    onButtonClick?: () => void;
-  }) => {
-    return (
-      <Box
-        position="absolute"
-        top="50%"
-        left="50%"
-        transform="translate(-50%, -50%)"
-      >
-        <Card
-          buttonText="순서바꾸기"
-          color={color}
-          onButtonClick={onButtonClick}
-        />
-      </Box>
-    );
-  }
-);
+interface ResultProps {
+  color?: ColorType;
+  onButtonClick?: () => void;
+}
+
+const Result = React.memo(({ color, onButtonClick }: ResultProps) => {
+  return (
+    <Box
+      position="absolute"
+      top="50%"
+      left="50%"
+      transform="translate(-50%, -50%)"
+    >
+      <Card
+        buttonText="순서바꾸기"
+        color={color}
+        onButtonClick={onButtonClick}
+      />
+    </Box>
+  );
+});
+
+interface SideBoxProps {
+  color: Exclude<ColorType, "white">;
+  onButtonClick?: (color: Exclude<ColorType, "white">) => void;
+  inset: InsetsType;
+}
 
 const SideBox = React.memo(
   ({
     color,
     onButtonClick,
     inset = ["auto", "auto", "auto", "auto"],
-  }: {
-    color: Exclude<ColorType, "white">;
-    onButtonClick?: (color: Exclude<ColorType, "white">) => void;
-    inset: InsetsType;
-  }) => {
+  }: SideBoxProps) => {
     // NOTE: React.memo는 props가 바뀌지 않으면 메모리제이션한다(해당 컴포넌트의 리렌더링을 일으키지 않는다).
     return (
       <Box
