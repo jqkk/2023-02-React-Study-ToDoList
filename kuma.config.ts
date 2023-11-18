@@ -6,6 +6,9 @@ const theme = createTheme({
     blue: "rgb(59 130 246)",
     green: "rgb(34 197 94)",
     yellow: "rgb(234 179 8)",
+    black: "rgb(0 0 0)",
+    gray: "rgb(209 213 219)",
+    indigo: "rgb(99 102 241)",
   },
 });
 

@@ -23,7 +23,7 @@ export const Playground = () => {
         left="50%"
         transform="translate(-50%, -50%)"
       >
-        <Box width="250px" height="250px" border="1px solid black" />
+        <Card />
       </Box>
     </Box>
   );

@@ -1,5 +1,18 @@
-import { Box } from "@kuma-ui/core";
+import { Flex } from "@kuma-ui/core";
+
+import { Button } from "../button";
 
 export const Card = () => {
-  return <Box width="250px" height="250px" border="1px solid black"></Box>;
+  return (
+    <Flex
+      width="250px"
+      height="250px"
+      border="1px solid black"
+      flexDirection="column-reverse"
+      bgColor="white"
+      borderRadius="8px"
+    >
+      <Button>클릭</Button>
+    </Flex>
+  );
 };
