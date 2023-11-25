@@ -3,17 +3,10 @@ import { useState } from "react";
 import { Box, Button, Flex, Input } from "@kuma-ui/core";
 
 import { ToDoItem } from "./components/todo-item";
-
-let id = 3;
+import { useTodo } from "./hooks/useTodo";
 
 export const App = () => {
-  const [todos, setTodos] = useState<
-    {
-      id: number;
-      text: string;
-      isDone: boolean;
-    }[]
-  >([
+  const { todos, addTodo, editTodo, removeTodo, toggleTodo } = useTodo([
     {
       id: 1,
       text: "밥먹기",
@@ -31,50 +24,6 @@ export const App = () => {
     },
   ]);
   const [input, setInput] = useState("");
-
-  const toggleTodo = (id: number) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            isDone: !todo.isDone,
-          };
-        }
-        return todo;
-      })
-    );
-  };
-
-  const removeTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  const editTodo = (id: number, text: string) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            text,
-          };
-        }
-        return todo;
-      })
-    );
-  };
-
-  const addTodo = (text: string) => {
-    id += 1;
-    setTodos([
-      ...todos,
-      {
-        id,
-        text,
-        isDone: false,
-      },
-    ]);
-  };
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
