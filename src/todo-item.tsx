@@ -4,7 +4,10 @@ import { useState } from "react";
 interface TodoItemProps {
    id: number;
    text: string;
-   isDone: boolean; 
+   isDone: boolean;
+   toggoeTodo: (id: number) => void;
+   removeTodo: (id: number) => void;
+   editTodo: (id: number, text: string) => void;
 }
 
 export const ToDoItem = ({text, isDone}: TodoItemProps) => {
@@ -35,6 +38,7 @@ export const ToDoItem = ({text, isDone}: TodoItemProps) => {
                         <Button
                             onClick={() => {
                                 setIsEditing(false);
+
                             }}
                         >
                             완료
@@ -58,10 +62,14 @@ export const ToDoItem = ({text, isDone}: TodoItemProps) => {
                         >
                             수정
                         </Button>
-                        <Button>
+                        <Button onClick={() => {
+                            toggleTodo(id)l
+                        }}>
                             {isDone ? "수행 완료 취소" : "수행 완료"}
                         </Button>
-                        <Button>삭제</Button>
+                        <Button onClick={() => {
+                            removeTodo(id);
+                        }}>삭제</Button>
                     </>
                 )}
             </Flex>
